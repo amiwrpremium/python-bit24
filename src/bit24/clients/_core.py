@@ -100,7 +100,7 @@ class CoreClient:
         """
         return {
             "Accept": "application/json",
-            "Content-Type": "application/json",
+            "Content-Type": "application/x-www-form-urlencoded",
             "X-BIT24-APIKEY": self.API_KEY,
         }
 
@@ -143,6 +143,7 @@ class CoreClient:
             ]
             for i in reversed(null_args):
                 del kwargs["data"][i]
+            kwargs["data"] = "&".join([f"{d[0]}={d[1]}" for d in kwargs["data"]])
 
         if data and method == enums.HTTPMethod.GET:
             kwargs["params"] = "&".join(
@@ -165,10 +166,9 @@ class CoreClient:
             str: The HMAC signature.
         """
         assert self.API_SECRET, "API Secret required for private endpoints"
-        m = hmac.new(
+        return hmac.new(
             self.API_SECRET.encode("utf-8"), query_string.encode("utf-8"), sha256
-        )
-        return m.hexdigest()
+        ).hexdigest()
 
     @staticmethod
     def _order_params(data: dict[str, Any]) -> list[tuple[str, str]]:

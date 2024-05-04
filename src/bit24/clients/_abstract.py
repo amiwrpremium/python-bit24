@@ -254,7 +254,7 @@ class AbstractClient(ABC):
     @abstractmethod
     def get_assets_history(
         self,
-        type: str | enums.TransactionType,  # noqa: A002
+        type: str | enums.TransactionType | None = None,  # noqa: A002
         symbol: str | None = None,
         coin_type: str | enums.CoinType | None = None,
         reason_type: str | enums.ReasonType | None = None,
@@ -266,7 +266,7 @@ class AbstractClient(ABC):
         Get the assets' history.
 
         Args:
-            type (str | enums.TransactionType): The transaction type.
+            type (str | enums.TransactionType | None): The transaction type.
             symbol (str | None): The symbol.
             coin_type (str | enums.CoinType | None): The coin type.
             reason_type (str | enums.ReasonType | None): The reason type.

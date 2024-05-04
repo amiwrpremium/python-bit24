@@ -266,8 +266,8 @@ class Client(AbstractClient, CoreClient):
         Returns:
             rt.BaseResponse: The response.
         """
-        kwargs["json"] = self._get_kwargs_from_locals(locals())
-        return self._post(self.SUBMIT_WITHDRAW_URI, **kwargs)
+        kwargs["data"] = self._get_kwargs_from_locals(locals())
+        return self._post(self.SUBMIT_WITHDRAW_URI, signed=True, **kwargs)
 
     def get_deposit_networks(
         self, symbol: str, **kwargs: Any
@@ -314,7 +314,7 @@ class Client(AbstractClient, CoreClient):
 
     def get_assets_history(
         self,
-        type: str | enums.TransactionType,  # noqa: A002
+        type: str | enums.TransactionType | None = None,  # noqa: A002
         symbol: str | None = None,
         coin_type: str | enums.CoinType | None = None,
         reason_type: str | enums.ReasonType | None = None,
@@ -373,8 +373,8 @@ class Client(AbstractClient, CoreClient):
         Notes:
             Use `category_type` and `type` respective enums for better readability.
         """
-        kwargs["json"] = self._get_kwargs_from_locals(locals())
-        return self._post(self.CREATE_ORDER_URI, **kwargs)
+        kwargs["data"] = self._get_kwargs_from_locals(locals())
+        return self._post(self.CREATE_ORDER_URI, signed=True, **kwargs)
 
     def cancel_order(
         self, order_id: int, **kwargs: Any
@@ -389,8 +389,8 @@ class Client(AbstractClient, CoreClient):
         Returns:
             rt.BaseResponse: The response.
         """
-        kwargs["json"] = self._get_kwargs_from_locals(locals())
-        return self._post(self.CANCEL_ORDER_URI, **kwargs)
+        kwargs["data"] = self._get_kwargs_from_locals(locals())
+        return self._post(self.CANCEL_ORDER_URI, signed=True, **kwargs)
 
     def get_orders_history(  # noqa: PLR0913, PLR0917
         self,

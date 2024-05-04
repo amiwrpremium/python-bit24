@@ -277,8 +277,8 @@ class AsyncClient(AbstractClient, CoreClient):
         Returns:
             rt.BaseResponse: The response.
         """
-        kwargs["json"] = self._get_kwargs_from_locals(locals())
-        return await self._post(self.SUBMIT_WITHDRAW_URI, **kwargs)
+        kwargs["data"] = self._get_kwargs_from_locals(locals())
+        return await self._post(self.SUBMIT_WITHDRAW_URI, signed=True, **kwargs)
 
     async def get_deposit_networks(  # type: ignore[override]
         self, symbol: str, **kwargs: Any
@@ -325,7 +325,7 @@ class AsyncClient(AbstractClient, CoreClient):
 
     async def get_assets_history(  # type: ignore[override]
         self,
-        type: str | enums.TransactionType,  # noqa: A002
+        type: str | enums.TransactionType | None = None,  # noqa: A002
         symbol: str | None = None,
         coin_type: str | enums.CoinType | None = None,
         reason_type: str | enums.ReasonType | None = None,
@@ -335,7 +335,7 @@ class AsyncClient(AbstractClient, CoreClient):
         Get the assets' history.
 
         Args:
-            type (str | enums.TransactionType): The transaction type.
+            type (str | enums.TransactionType | None): The transaction type.
             symbol (str | None): The symbol.
             coin_type (str | enums.CoinType | None): The coin type.
             reason_type (str | enums.ReasonType | None): The reason type.
@@ -384,8 +384,8 @@ class AsyncClient(AbstractClient, CoreClient):
         Notes:
             Use `category_type` and `type` respective enums for better readability.
         """
-        kwargs["json"] = self._get_kwargs_from_locals(locals())
-        return await self._post(self.CREATE_ORDER_URI, **kwargs)
+        kwargs["data"] = self._get_kwargs_from_locals(locals())
+        return await self._post(self.CREATE_ORDER_URI, signed=True, **kwargs)
 
     async def cancel_order(  # type: ignore[override]
         self, order_id: int, **kwargs: Any
@@ -400,8 +400,8 @@ class AsyncClient(AbstractClient, CoreClient):
         Returns:
             rt.BaseResponse: The response.
         """
-        kwargs["json"] = self._get_kwargs_from_locals(locals())
-        return await self._post(self.CANCEL_ORDER_URI, **kwargs)
+        kwargs["data"] = self._get_kwargs_from_locals(locals())
+        return await self._post(self.CANCEL_ORDER_URI, signed=True, **kwargs)
 
     async def get_orders_history(  # type: ignore[override] # noqa: PLR0913, PLR0917
         self,
