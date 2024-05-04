@@ -1,0 +1,10 @@
+venv
+.idea
+.backup
+m.py
+*.json
+*.log
+diff.txt
+DS_Store
+__pycache__
+*.pyc

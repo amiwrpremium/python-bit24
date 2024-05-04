@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "python-bit24"
+version = "0.1.0"
+description = "Unofficial Python SDK for Bit24"
+authors = ["AMiWR <amiwrpremium@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [
+    { include = "bit24", from = "src" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
