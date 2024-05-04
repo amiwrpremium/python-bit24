@@ -8,4 +8,13 @@ This package contains the clients for the different services that the applicatio
 * [Core](_core) - Core client.
 * [Abstract](_abstract) - Abstract client.
 * [Sync Client](_sync_client) - Sync client (use [requests](https://docs.python-requests.org/en/master/)).
+* [Async Client](_async_client) - Async client (use [aiohttp](https://docs.aiohttp.org/en/stable/)).
 """
+
+__all__ = [
+    "AsyncClient",
+    "Client",
+]
+
+from .async_client import AsyncClient
+from .client import Client
