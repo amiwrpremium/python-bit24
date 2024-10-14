@@ -24,7 +24,7 @@ repos:
         args: [ "--format=requirements.txt", "--without-hashes", "-o", "requirements-docs.txt", "--only", "docs" ]
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: 'v3.15.2'
+    rev: 'v3.18.0'
     hooks:
       - id: pyupgrade
         args: [ --py36-plus ]
@@ -43,7 +43,7 @@ repos:
       - id: python-use-type-annotations
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: 'v4.6.0'
+    rev: 'v5.0.0'
     hooks:
       - id: check-yaml
       - id: check-toml
@@ -62,7 +62,7 @@ repos:
       - id: requirements-txt-fixer
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: 'v0.4.4'
+    rev: 'v0.6.9'
     hooks:
       - id: ruff
         args: [ --fix ]
