@@ -177,7 +177,7 @@ class AbstractClient(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def submit_withdraw(  # noqa: PLR0913
+    def submit_withdraw(
         self,
         symbol: str,
         network_id: int,
