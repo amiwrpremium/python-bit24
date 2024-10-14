@@ -243,7 +243,7 @@ class Client(AbstractClient, CoreClient):
         kwargs["params"] = self._get_kwargs_from_locals(locals())
         return self._get(self.WITHDRAW_NETWORKS_URI, **kwargs)
 
-    def submit_withdraw(  # noqa: PLR0913
+    def submit_withdraw(
         self,
         symbol: str,
         network_id: int,

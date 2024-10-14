@@ -72,7 +72,7 @@ class AsyncClient(AbstractClient, CoreClient):
         requests_params (Optional[Dict[str, Any]]): The requests parameters.
     """
 
-    def __init__(  # noqa: PLR0913
+    def __init__(
         self,
         api_key: str,
         api_secret: str | None = None,
@@ -254,7 +254,7 @@ class AsyncClient(AbstractClient, CoreClient):
         kwargs["params"] = self._get_kwargs_from_locals(locals())
         return await self._get(self.WITHDRAW_NETWORKS_URI, **kwargs)
 
-    async def submit_withdraw(  # type: ignore[override] # noqa: PLR0913
+    async def submit_withdraw(  # type: ignore[override]
         self,
         symbol: str,
         network_id: int,
