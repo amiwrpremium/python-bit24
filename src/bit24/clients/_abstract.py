@@ -177,7 +177,7 @@ class AbstractClient(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def submit_withdraw(  # noqa: PLR0913
+    def submit_withdraw(
         self,
         symbol: str,
         network_id: int,
@@ -254,7 +254,7 @@ class AbstractClient(ABC):
     @abstractmethod
     def get_assets_history(
         self,
-        type: str | enums.TransactionType | None = None,  # noqa: A002
+        type: str | enums.TransactionType | None = None,  # ruff: ignore[builtin-argument-shadowing]
         symbol: str | None = None,
         coin_type: str | enums.CoinType | None = None,
         reason_type: str | enums.ReasonType | None = None,
@@ -281,12 +281,12 @@ class AbstractClient(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def create_order(  # noqa: PLR0913, PLR0917
+    def create_order(  # ruff: ignore[too-many-arguments, too-many-positional-arguments]
         self,
         base_coin_symbol: str,
         quote_coin_symbol: str,
         category_type: str | enums.OrderCategoryType,
-        type: str | enums.OrderType,  # noqa: A002
+        type: str | enums.OrderType,  # ruff: ignore[builtin-argument-shadowing]
         amount: float | None = None,
         price: float | None = None,
         quote_coin_amount: float | None = None,
@@ -338,11 +338,11 @@ class AbstractClient(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def get_orders_history(  # noqa: PLR0913, PLR0917
+    def get_orders_history(  # ruff: ignore[too-many-arguments, too-many-positional-arguments]
         self,
         is_trade: str | enums.IsTrade,
         market_id: int | None = None,
-        type: str | enums.OrderType | None = None,  # noqa: A002
+        type: str | enums.OrderType | None = None,  # ruff: ignore[builtin-argument-shadowing]
         category_type: str | enums.OrderCategoryType | None = None,
         from_date: str | None = None,
         to_date: str | None = None,
