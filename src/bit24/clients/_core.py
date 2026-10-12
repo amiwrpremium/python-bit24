@@ -125,7 +125,7 @@ class CoreClient:
         if self._requests_params:
             kwargs.update(self._requests_params)
 
-        data = kwargs.get("data", None)
+        data = kwargs.get("data")
         if data and isinstance(data, dict):
             kwargs["data"] = data
 
