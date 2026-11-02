@@ -36,9 +36,7 @@ You can pass [requests](https://docs.python-requests.org/en/master/) OR [aiohttp
     ``` python title="with_request_params.py" linenums="1"
     from bit24 import Client
 
-    client = Client("<API_KEY>", "<API_SECRET>", requests_params={
-        "timeout": 10
-    })
+    client = Client("<API_KEY>", "<API_SECRET>", requests_params={"timeout": 10})
     ```
 
 === "Async"
@@ -46,9 +44,7 @@ You can pass [requests](https://docs.python-requests.org/en/master/) OR [aiohttp
     ``` python title="async_with_request_params.py" linenums="1"
     from bit24 import AsyncClient
 
-    client = AsyncClient("<API_KEY>", "<API_SECRET>", requests_params={
-        "timeout": 10
-    })
+    client = AsyncClient("<API_KEY>", "<API_SECRET>", requests_params={"timeout": 10})
     ```
 
 ## Get Withdraw Networks
@@ -605,9 +601,7 @@ Cancel Order
 
 
     async def main():
-        data = await client.cancel_order(
-            order_id=366375085
-        )
+        data = await client.cancel_order(order_id=366375085)
         print(data)
 
 
@@ -2354,9 +2348,7 @@ Get Order Book
 
 
     def main():
-        data = client.get_order_book(
-            "USDT", "IRT"
-        )
+        data = client.get_order_book("USDT", "IRT")
         print(data)
 
 
@@ -2374,9 +2366,7 @@ Get Order Book
 
 
     async def main():
-        data = await client.get_order_book(
-            "USDT", "IRT"
-        )
+        data = await client.get_order_book("USDT", "IRT")
         print(data)
 
 
