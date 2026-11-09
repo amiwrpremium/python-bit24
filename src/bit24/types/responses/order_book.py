@@ -25,7 +25,9 @@ class OrderBookItem(TypedDict):
 
     Examples:
         >>> OrderBookItem(
-        ...     market_id=1, each_price="each_price", available_amount="available_amount"
+        ...     market_id=1,
+        ...     each_price="each_price",
+        ...     available_amount="available_amount",
         ... )
         {
             'market_id': 1,

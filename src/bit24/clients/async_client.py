@@ -72,7 +72,7 @@ class AsyncClient(AbstractClient, CoreClient):
         requests_params (Optional[Dict[str, Any]]): The requests parameters.
     """
 
-    def __init__(  # noqa: PLR0913
+    def __init__(
         self,
         api_key: str,
         api_secret: str | None = None,
@@ -254,7 +254,7 @@ class AsyncClient(AbstractClient, CoreClient):
         kwargs["params"] = self._get_kwargs_from_locals(locals())
         return await self._get(self.WITHDRAW_NETWORKS_URI, **kwargs)
 
-    async def submit_withdraw(  # type: ignore[override] # noqa: PLR0913
+    async def submit_withdraw(  # type: ignore[override]
         self,
         symbol: str,
         network_id: int,
@@ -325,7 +325,7 @@ class AsyncClient(AbstractClient, CoreClient):
 
     async def get_assets_history(  # type: ignore[override]
         self,
-        type: str | enums.TransactionType | None = None,  # noqa: A002
+        type: str | enums.TransactionType | None = None,  # ruff: ignore[builtin-argument-shadowing]
         symbol: str | None = None,
         coin_type: str | enums.CoinType | None = None,
         reason_type: str | enums.ReasonType | None = None,
@@ -350,12 +350,12 @@ class AsyncClient(AbstractClient, CoreClient):
         kwargs["params"] = self._get_kwargs_from_locals(locals())
         return await self._get(self.ASSETS_HISTORY_URI, **kwargs)
 
-    async def create_order(  # type: ignore[override] # noqa: PLR0913, PLR0917
+    async def create_order(  # type: ignore[override] # ruff: ignore[too-many-arguments, too-many-positional-arguments]
         self,
         base_coin_symbol: str,
         quote_coin_symbol: str,
         category_type: str | enums.OrderCategoryType,
-        type: str | enums.OrderType,  # noqa: A002
+        type: str | enums.OrderType,  # ruff: ignore[builtin-argument-shadowing]
         amount: float | None = None,
         price: float | None = None,
         quote_coin_amount: float | None = None,
@@ -403,11 +403,11 @@ class AsyncClient(AbstractClient, CoreClient):
         kwargs["data"] = self._get_kwargs_from_locals(locals())
         return await self._post(self.CANCEL_ORDER_URI, signed=True, **kwargs)
 
-    async def get_orders_history(  # type: ignore[override] # noqa: PLR0913, PLR0917
+    async def get_orders_history(  # type: ignore[override] # ruff: ignore[too-many-arguments, too-many-positional-arguments]
         self,
         is_trade: str | enums.IsTrade,
         market_id: int | None = None,
-        type: str | enums.OrderType | None = None,  # noqa: A002
+        type: str | enums.OrderType | None = None,  # ruff: ignore[builtin-argument-shadowing]
         category_type: str | enums.OrderCategoryType | None = None,
         from_date: str | None = None,
         to_date: str | None = None,

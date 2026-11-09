@@ -19,11 +19,11 @@ Enum classes for the Bit24 API.
 """
 
 try:
-    from enum import StrEnum  # type: ignore[attr-defined] # noqa: RUF100
+    from enum import StrEnum  # type: ignore[attr-defined] # ruff: ignore[unused-noqa]
 except ImportError:
     from enum import Enum
 
-    class StrEnum(str, Enum):  # type: ignore[no-redef] # noqa: UP042
+    class StrEnum(str, Enum):  # type: ignore[no-redef] # ruff: ignore[replace-str-enum]
         """Enum class for older Python versions"""
 
         def __str__(self) -> str:
